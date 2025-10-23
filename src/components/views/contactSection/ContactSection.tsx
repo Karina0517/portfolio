@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
-
+import styles from "../aboutSection/about.module.css";
 
 const ContactSection = () => {
 
@@ -67,7 +67,7 @@ const ContactSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Contacto</span>
+            <span className={`${styles.gradientText}`}>Contacto</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             ¿Tienes un proyecto en mente? Me encantaría saber más sobre tu idea
