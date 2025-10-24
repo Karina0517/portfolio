@@ -7,7 +7,7 @@ export const metadata = {
   description: "Portafolio personal desarrollado con Next.js y TypeScript",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

@@ -1,0 +1,11 @@
+.nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  background-color: rgba(252, 231, 243, 0.7); 
+  padding: 1rem; /* Equivalente a p-4 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); 
+  transition: box-shadow 300ms ease-in-out;
+}

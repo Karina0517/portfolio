@@ -25,8 +25,9 @@ export const Footer = () => {
         </div>
 
         <p className="text-xs text-gray-500 text-center md:text-right">
-          © 2025 Hecho con <Heart size={14} className="inline text-pink-400" /> por{" "}
-          <span className="text-blue-500">Karina Henao</span>
+          © 2025 Hecho por{" "}
+          <span className="text-blue-500">Karina Henao </span>
+          <Heart size={14} className="inline text-pink-400" />
         </p>
       </div>
     </footer>

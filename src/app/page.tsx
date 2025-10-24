@@ -1,8 +1,6 @@
 import AboutSection from '@/components/views/aboutSection/AboutSection'
 import { Card } from '@/components/ui/card/Card';
 import ContactSection from '@/components/views/contactSection/ContactSection';
-import Footer from '@/components/views/Footer';
-import Header from '@/components/views/Header';
 import ProjectsSection from '@/components/views/projectsSection/ProjectsSection';
 import { Badge } from '@/components/ui/badge/Badge';
 const Index = () => {

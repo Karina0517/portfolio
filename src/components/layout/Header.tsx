@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import styles from "./layout.module.css";
 export const Navbar = () => {
   const pathname = usePathname();
 
@@ -12,7 +12,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex justify-between items-center px-10 py-4 border-b border-gray-100">
+    <nav className={`flex justify-between items-center px-10 py-4 border-b border-gray-100 ${styles.nav}`}>
       <h1 className="text-lg font-bold bg-gradient-to-r from-pink-300 to-blue-300 bg-clip-text text-transparent">
         Mi Portafolio
       </h1>
