@@ -1,9 +1,5 @@
-import ProjectsSection from "@/components/views/projectsSection/ProjectsSection"
+import ProjectsSection from "@/components/views/projectsSection/ProjectsSection";
 
-
-const ProjectsPage = () => {
-    return (
-        <ProjectsSection/>
-    )
+export default function ProjectsPage() {
+  return <ProjectsSection />;
 }
-export default ProjectsPage;

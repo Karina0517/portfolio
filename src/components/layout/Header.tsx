@@ -7,35 +7,34 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   const links = [
-    { name: "About me", href: "/" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
+    { name: "Sobre mí", href: "/" },
+    { name: "Proyectos", href: "/projects" },
+    { name: "Contacto", href: "/contact" },
   ];
 
   return (
-    <nav className={`flex justify-between items-center ${styles.nav}`}>
+    <nav
+      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-auto max-w-2xl px-4`}
+    >
+      <div className={styles.navContainer}>
+        <div className="flex items-center justify-center gap-2">
+          {links.map((link) => {
+            const isActive = pathname === link.href;
 
-      <div className="flex gap-4 items-center">
-        {links.map((link) => {
-          const isActive = pathname === link.href;
-
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-all px-3 py-1.5 rounded-full ${
-                isActive
-                  ? " text-[#c25a5a91] shadow-[0_0_10px_#faebd798] bg-white/30" 
-                  : "text-[#c25a5a91] hover:bg-white/30"
-              }`}
-            >
-              {link.name}
-            </Link>
-          );
-        })}
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${styles.link} ${
+                  isActive ? styles.activeLink : ""
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );
 };
-
-export default Navbar;

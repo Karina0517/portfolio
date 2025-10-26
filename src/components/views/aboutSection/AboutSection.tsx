@@ -1,15 +1,9 @@
-import { Code2, Palette, Rocket, Database } from 'lucide-react';
 import Image from 'next/image';
 import styles from './about.module.css';
 import profilePhoto from '../../../assets/kari.jpeg';
+import {skills} from '@/data/skillsData';
 
 const AboutSection = () => {
-  const skills = [
-    { name: 'Frontend', icon: Code2, items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'] },
-    { name: 'Backend', icon: Database, items: ['Node.js', 'PostgreSQL', 'API REST'] },
-    { name: 'Diseño', icon: Palette, items: ['Figma', 'UI/UX', 'Responsive Design'] },
-    { name: 'Herramientas', icon: Rocket, items: ['Git', 'Vite', 'Vercel', 'Docker'] },
-  ];
 
   return (
    <section className={`relative ${styles.about} flex flex-col md:flex-row items-center justify-center gap-20`}>
@@ -37,14 +31,12 @@ const AboutSection = () => {
         </div>
 
         <p className={styles.paragraph}>
-          Desarrolladora web apasionada por crear experiencias digitales excepcionales.
-          Especializado en tecnologías modernas y diseño responsive, transformo ideas en
-          aplicaciones web elegantes y funcionales.
+            Soy desarrolladora web, apasionada por crear experiencias digitales que combinan diseño y funcionalidad.
+            Disfruto convertir ideas en proyectos web atractivos, explorando tanto el frontend como el backend mientras sigo aprendiendo y mejorando cada día.
+
+            Me motiva la posibilidad de crecer en el mundo del desarrollo, aportar soluciones creativas y seguir construyendo código que inspire y funcione.
         </p>
-        <p className={styles.paragraph}>
-          Con experiencia en desarrollo frontend y backend, me enfoco en construir soluciones
-          escalables que combinan diseño intuitivo con código limpio y eficiente.
-        </p>
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           {skills.map(({ name, icon: Icon, items }) => (

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ContactStyle.module.css';
 
 interface InputFieldProps {
   id: string;
@@ -23,13 +24,9 @@ export const InputField: React.FC<InputFieldProps> = ({
   onChange,
   textarea = false,
 }) => {
-  const baseClass = `w-full px-4 py-3 rounded-lg border ${
-    error ? 'border-destructive' : 'border-border'
-  } bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-all`;
-
   return (
-    <div className="space-y-2">
-      <label htmlFor={id} className="block text-sm font-medium">
+    <div className={styles.inputGroup}>
+      <label htmlFor={id} className={styles.label}>
         {label}
       </label>
       {textarea ? (
@@ -39,7 +36,7 @@ export const InputField: React.FC<InputFieldProps> = ({
           value={value}
           onChange={onChange}
           rows={6}
-          className={`${baseClass} resize-none`}
+          className={`${styles.input} ${error ? styles.error : ''}`}
           placeholder={placeholder}
         />
       ) : (
@@ -49,11 +46,11 @@ export const InputField: React.FC<InputFieldProps> = ({
           name={name}
           value={value}
           onChange={onChange}
-          className={baseClass}
+          className={`${styles.input} ${error ? styles.error : ''}`}
           placeholder={placeholder}
         />
       )}
-      {error && <p className="text-sm text-red-500 text-destructive">{error}</p>}
+      {error && <p className={styles.errorText}>{error}</p>}
     </div>
   );
 };
