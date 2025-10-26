@@ -1,11 +1,33 @@
 .nav{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 30;
-  background-color: rgba(252, 231, 243, 0.7); 
-  padding: 1rem; /* Equivalente a p-4 */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); 
-  transition: box-shadow 300ms ease-in-out;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 600px;
+  z-index: 1000;
+  background: #ff597517;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(50px);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(243, 172, 207, 0.3),
+              0 2px 8px rgba(255, 182, 193, 0.2);
+  transition: all 0.3s ease;
+  color: #c25a5a91; 
+}
+
+.nav:hover {
+  box-shadow: 0 12px 40px rgba(243, 172, 207, 0.4),
+              0 4px 12px rgba(255, 182, 193, 0.3);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    top: 1rem;
+    width: calc(100% - 2rem);
+    max-width: none;
+    padding: 0.6rem 1.2rem;
+  }
 }

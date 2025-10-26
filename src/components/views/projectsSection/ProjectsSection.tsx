@@ -75,7 +75,7 @@ export const ProjectsSection = () => {
                 image={project.image.src}
                 badges={project.technologies}
               >
-                {/* Botones dentro del Card */}
+              
                 <MiButton variant="primary_1" text="Detalles" />
                 <a
                   href={project.demoLink}

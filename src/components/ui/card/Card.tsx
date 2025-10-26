@@ -36,7 +36,7 @@ export const Card = ({
 
   if (variant === "project") {
     return (
-      <div className="bg-card rounded-2xl border border-[#D9ABB6] overflow-hidden shadow-md hover:shadow-lg transition-all">
+      <div className=" z-1000 rounded-2xl border border-[#D9ABB6] overflow-hidden shadow-md hover:shadow-lg transition-all">
         {image && <img src={image} alt={title} className="w-full h-48 object-cover" />}
         <div className="p-5 space-y-2">
           <h3 className="text-lg font-bold">{title}</h3>

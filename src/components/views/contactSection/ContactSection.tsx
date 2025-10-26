@@ -1,59 +1,20 @@
 'use client';
-import { useState } from 'react';
+
 import { Mail, MapPin, Send } from 'lucide-react';
 import styles from '../aboutSection/about.module.css';
 import { Card } from './CardContact';
-import { InputField } from './Input';
+import { InputField } from './ContactForm';
 import { MiButton } from '../../../components/ui/button/Button';
+import { useContactForm } from "../../../hooks/useContactForm";
 
-
-const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const validateForm = () => {
-    const newErrors = { name: '', email: '', message: '' };
-
-    if (!formData.name.trim()) newErrors.name = 'El nombre es requerido';
-    else if (formData.name.trim().length < 2)
-      newErrors.name = 'Debe tener al menos 2 caracteres';
-
-    if (!formData.email.trim()) newErrors.email = 'El correo es requerido';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      newErrors.email = 'Correo inválido';
-
-    if (!formData.message.trim()) newErrors.message = 'El mensaje es requerido';
-    else if (formData.message.trim().length < 10)
-      newErrors.message = 'Debe tener al menos 10 caracteres';
-
-    setErrors(newErrors);
-    return !Object.values(newErrors).some(Boolean);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      setFormData({ name: '', email: '', message: '' });
-      setErrors({ name: '', email: '', message: '' });
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof typeof errors])
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-  };
+export default function ContactSection() {
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+  } = useContactForm();
 
   return (
     <section id="contact" className="min-h-screen py-20 px-4">
@@ -69,7 +30,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Columna Izquierda */}
           <div className="space-y-8">
             <Card title="Información de Contacto">
               <div className="space-y-4">
@@ -102,27 +62,25 @@ const ContactSection = () => {
 
             <Card title="¿Por qué trabajar conmigo?" variant="gradient">
               <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary"></span>
-                  Código limpio y mantenible
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-secondary"></span>
-                  Diseños responsive y modernos
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary"></span>
-                  Comunicación clara y constante
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-secondary"></span>
-                  Entrega puntual de proyectos
-                </li>
+                {[
+                  "Código limpio y mantenible",
+                  "Diseños responsive y modernos",
+                  "Comunicación clara y constante",
+                  "Entrega puntual de proyectos",
+                ].map((text, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        index % 2 === 0 ? "bg-primary" : "bg-secondary"
+                      }`}
+                    ></span>
+                    {text}
+                  </li>
+                ))}
               </ul>
             </Card>
           </div>
 
-          {/* Columna Derecha - Formulario */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <InputField
               id="name"
@@ -133,6 +91,7 @@ const ContactSection = () => {
               placeholder="Tu nombre"
               error={errors.name}
             />
+
             <InputField
               id="email"
               name="email"
@@ -143,6 +102,7 @@ const ContactSection = () => {
               placeholder="tu@email.com"
               error={errors.email}
             />
+
             <InputField
               id="message"
               name="message"
@@ -154,18 +114,15 @@ const ContactSection = () => {
               textarea
             />
 
-            {/* <MiButton
-              type="submit"
+            <MiButton
+              variant="primary_1"
               className="w-full flex items-center justify-center gap-2"
-            >
-              <Send size={20} />
-              Enviar Mensaje
-            </MiButton> */}
+              disabled={isSubmitting}
+              text={isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+            />
           </form>
         </div>
       </div>
     </section>
   );
-};
-
-export default ContactSection;
+}

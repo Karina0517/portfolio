@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Navbar } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { ToastContainer } from "react-toastify";
+import { FloralBackground } from "@/components/FloralBackground";
 
 export const metadata = {
   title: "Mi Portafolio",
@@ -14,10 +16,14 @@ export default function Layout({
 }) {
   return (
     <html lang="es">
-      <body className="min-h-screen flex flex-col bg-white text-gray-800">
+      <body className="relative min-h-screen flex flex-col bg-white text-gray-800 overflow-x-hidden">
+        <div className="absolute inset-0 -z-10">
+          <FloralBackground />
+        </div>
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow relative z-10">{children}</main>
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

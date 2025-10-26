@@ -53,7 +53,7 @@ export const InputField: React.FC<InputFieldProps> = ({
           placeholder={placeholder}
         />
       )}
-      {error && <p className="text-sm text-destructive">{error}</p>}
+      {error && <p className="text-sm text-red-500 text-destructive">{error}</p>}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./layout.module.css";
+
 export const Navbar = () => {
   const pathname = usePathname();
 
@@ -12,12 +13,9 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className={`flex justify-between items-center px-10 py-4 border-b border-gray-100 ${styles.nav}`}>
-      <h1 className="text-lg font-bold bg-gradient-to-r from-pink-300 to-blue-300 bg-clip-text text-transparent">
-        Mi Portafolio
-      </h1>
+    <nav className={`flex justify-between items-center ${styles.nav}`}>
 
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-4 items-center">
         {links.map((link) => {
           const isActive = pathname === link.href;
 
@@ -25,10 +23,10 @@ export const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-all px-3 py-1 rounded-full ${
+              className={`text-sm font-medium transition-all px-3 py-1.5 rounded-full ${
                 isActive
-                  ? "bg-pink-300/60 text-white"
-                  : "text-gray-800 hover:text-pink-400"
+                  ? " text-[#c25a5a91] shadow-[0_0_10px_#faebd798] bg-white/30" 
+                  : "text-[#c25a5a91] hover:bg-white/30"
               }`}
             >
               {link.name}
