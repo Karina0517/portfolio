@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import Contact from "../../models/contact";
 import { google } from "googleapis";
 import { contactSchema } from "../../validations/contactSchema";
+import { ValidationError } from "yup"; 
 
 type PostResponse = { ok: true; message: string; createdId?: string };
 type ErrorResponse = { ok: false; error: string; details?: string[] };
@@ -14,15 +15,22 @@ export async function POST(request: Request): Promise<NextResponse<ResponseBody>
 
     const data = await request.json();
 
-    // yup
+    //  yup
     try {
       await contactSchema.validate(data, { abortEarly: false });
-    } catch (validationError: any) {
-      const errors = validationError.inner.map((err: any) => err.message);
-      return NextResponse.json(
-        { ok: false, error: "Errores de validación", details: errors },
-        { status: 400 }
-      );
+    } catch (validationError) {
+      if (validationError instanceof ValidationError) {
+        const errors = validationError.inner.map((err) => err.message);
+        return NextResponse.json(
+          { ok: false, error: "Errores de validación", details: errors },
+          { status: 400 }
+        );
+      } else {
+        return NextResponse.json(
+          { ok: false, error: "Error desconocido en validación" },
+          { status: 400 }
+        );
+      }
     }
 
     const { name, email, message } = data;
@@ -48,11 +56,11 @@ export async function POST(request: Request): Promise<NextResponse<ResponseBody>
 
     const sheets = google.sheets({ version: "v4", auth });
 
-    // Se guarda en mongodb
+    // Guardar en MongoDB
     const newContact = new Contact({ name, email, message });
     const savedContact = await newContact.save();
 
-    // Se guarda en google sheets
+    // Guardar en Google Sheets
     const timestamp = new Date().toLocaleString("es-CO", {
       timeZone: "America/Bogota",
       dateStyle: "short",
