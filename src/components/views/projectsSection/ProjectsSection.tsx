@@ -1,30 +1,30 @@
-"use client";
+ "use client";
 
 import { ExternalLink, Github } from "lucide-react";
 import { Card } from "@/components/ui/card/Card";
 import { MiButton } from "@/components/ui/button/Button";
-import styles from "../../../components/views/aboutSection/about.module.css";
+import styles from "./projects.module.css"; 
 import { projects } from "@/data/projectsData";
 import Link from "next/link";
 
 export const ProjectsSection = () => {
   return (
-    <section className="min-h-screen py-30 px-4 bg-gradient-to-b from-background to-muted/30 py-24">
-      <div className="container mx-auto max-w-6xl">
-        <header className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h2 className={styles.title}>
             Mis <span className={styles.gradientText}>Proyectos</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className={styles.subtitle}>
             Una selección de proyectos que demuestran mis habilidades en desarrollo web.
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className={styles.grid}>
           {projects.map((project, index) => (
             <div
               key={project.slug}
-              className="group animate-fade-in"
+              className={`${styles.projectCard} animate-fade-in`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <Card
@@ -32,7 +32,6 @@ export const ProjectsSection = () => {
                 title={project.title}
                 description={project.description}
                 image={project.image.src}
-                badges={project.technologies}
               >
                 <Link href={`/projects/${project.slug}`}>
                   <MiButton variant="primary_1" text="Detalles" />
@@ -42,7 +41,7 @@ export const ProjectsSection = () => {
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-[#B66D82] hover:bg-primary-hover transition-all hover-lift"
+                  className={styles.demoLink}
                 >
                   <ExternalLink size={18} />
                   Ver Demo
@@ -52,9 +51,9 @@ export const ProjectsSection = () => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-1 rounded-lg border border-[#A89C9F] text-[#A89C9F]"
+                  className={styles.codeLink}
                 >
-                  <Github size={18} />
+                  <Github size={16} />
                   Código
                 </a>
               </Card>

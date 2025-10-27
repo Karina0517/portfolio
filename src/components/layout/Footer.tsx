@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
@@ -13,13 +14,13 @@ export const Footer = () => {
         </div>
 
         <div className="flex gap-4">
-          <Link href="https://github.com" target="_blank" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
+          <Link href="https://github.com/Karina0517" target="_blank" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
             <Github size={18} className="text-gray-700" />
           </Link>
-          <Link href="https://linkedin.com" target="_blank" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
+          <Link href="https://www.linkedin.com/in/karina-andrea-henao-zuleta-479a05377" target="_blank" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
             <Linkedin size={18} className="text-gray-700" />
           </Link>
-          <Link href="mailto:tucorreo@mail.com" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
+          <Link href="mailto:henaokarina17@gmail.com" className="p-2 border border-pink-200 rounded-full hover:bg-pink-100 hover:border-pink-300 transition-all">
             <Mail size={18} className="text-gray-700" />
           </Link>
         </div>

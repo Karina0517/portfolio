@@ -39,7 +39,7 @@ export const projects = [
       "Diseño responsive"
     ],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Karina0517/portfolio.git",
       images: [dash_port,proyectsPort,proyects2_port,carouselPort,detailsPort,contactPort,contact2_port,contact_error_port],
     details:
       "Este proyecto es mi portafolio web personal, desarrollado con Next.js y TypeScript, donde presento mis habilidades como desarrolladora web y mis proyectos destacados. La aplicación está estructurada en tres vistas principales: Sobre mí, Proyectos y Contacto. En la vista Sobre mí, muestro una breve introducción sobre mi perfil y enfoque como desarrolladora. En la vista Proyectos, implementé una ruta dinámica que permite renderizar los detalles de cada proyecto desde parámetros personalizados, muestra un carrusel de imágenes y detalles precisos de cada proyecto. En la vista Contacto, desarrollé un formulario controlado, validaciones con yup, conectado a una base de datos MongoDB y a Google Sheets mediante una API personalizada, lo que permite que cada mensaje enviado se almacene automáticamente en una hoja de cálculo de Google. El proyecto fue construido con React y Next.js (App Router), utilizando Hooks como useState, useEffect, useContext y useRouter para el manejo del estado, la navegación y la lógica interna. En el diseño se emplearon Tailwind CSS y CSS Modules, junto con componentes reutilizables tipados con Props para asegurar consistencia y escalabilidad. En conjunto, este portafolio refleja tanto mis conocimientos técnicos como mi estilo personal de desarrollo: organizado, escalable y centrado en la experiencia del usuario.",
@@ -64,7 +64,7 @@ export const projects = [
       "Next Router"
     ],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Karina0517/simulacro.git",
     images: [projectLibrary,loginLib,newLib,new2_lib,logoutLib],
     details:
       "Library Management System es una aplicación en desarrollo creada con Next.js y TypeScript, donde implemento un flujo completo de autenticación y CRUDs funcionales para la gestión de Libros y Autores. El proyecto refleja mi proceso de aprendizaje y mi interés por construir interfaces limpias, reactivas y escalables. He trabajado con hooks de React como useState, useEffect, useContext y useRouter de Next.js, además de crear componentes reutilizables con props para lograr una arquitectura modular y mantenible. La aplicación utiliza Axios para las peticiones HTTP, LocalStorage para la persistencia de sesión y una estructura clara de rutas dinámicas para organizar las vistas, toatify para notificaciones. Actualmente, el proyecto sigue en construcción, evolucionando constantemente para mejorar la experiencia de usuario y la integración entre frontend y backend.",
@@ -88,7 +88,7 @@ export const projects = [
       "Componentes reutilizables con props tipadas"
     ],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Karina0517/prueba_desempe-o_ts.git",
       images: [dashP,loginP,filterP, logoutLib],
     details:
       "Este proyecto fue desarrollado como parte de una prueba de desempeño técnica. La aplicación implementa un flujo completo de autenticación y CRUDs funcionales para la gestión de productos y usuarios. Utiliza Next.js con TypeScript, Axios para las solicitudes HTTP y una API interna conectada a MongoDB. Incorpora hooks de React (useState, useEffect, useContext, useRouter), manejo de errores del frontend y del backend, y componentes reutilizables con props tipadas. El sistema incluye vistas protegidas, filtrado dinámico de productos y un diseño responsivo con Tailwind CSS.",

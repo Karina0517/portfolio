@@ -35,7 +35,7 @@ export default function ContactSection() {
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                    <Mail size={24} />
+                    <Mail className='text-pink-300 bg-pink-50 rounded' size={24} />
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Correo Electrónico</p>
@@ -43,18 +43,18 @@ export default function ContactSection() {
                       href="mailto:tu@email.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      tu@email.com
+                      henaokarina17@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-secondary/10 text-secondary-foreground">
-                    <MapPin size={24} />
+                    <MapPin className='text-pink-300 bg-pink-50 rounded' size={24} />
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Ubicación</p>
-                    <p className="text-muted-foreground">Ciudad, País</p>
+                    <p className="text-muted-foreground">Medellín, Colombia</p>
                   </div>
                 </div>
               </div>

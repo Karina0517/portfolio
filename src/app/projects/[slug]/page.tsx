@@ -6,6 +6,7 @@ import { MiButton } from "@/components/ui/button/Button";
 import { projects } from "@/data/projectsData";
 import { use } from "react";
 import ProjectCarousel from "@/components/ui/carousel/ProjectCarousel";
+import router from "next/router";
 
 type ProjectParams = {
   slug: string;
@@ -39,7 +40,6 @@ export default function ProjectDetail({
 
         <p className="mb-6">{project.details}</p>
 
-        <MiButton variant="primary_1" text="Volver a proyectos" click={()=>{}} />
       </div>
     </section>
   );
