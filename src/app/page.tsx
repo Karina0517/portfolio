@@ -1,14 +1,5 @@
-import AboutSection from '@/components/AboutSection'
-import ContactSection from '@/components/ContactSection';
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <main>
-        <AboutSection />
-        <ContactSection/>
-      </main>
-    </div>
-  );
-};
+import AboutSection from "@/components/views/aboutSection/AboutSection";
 
-export default Index;
+export default function HomePage() {
+  return <AboutSection />;
+}

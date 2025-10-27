@@ -1,0 +1,103 @@
+.section {
+  min-height: 100vh;
+  padding: 6rem 1rem;
+  background: linear-gradient(to bottom, var(--background), rgba(var(--muted), 0.3));
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fade-in 0.8s ease-in-out both;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #b66d82, #a89c9f);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground, #888);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.projectCard {
+  animation: fade-in 0.8s ease-in-out both;
+}
+
+.demoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #b66d82;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.demoLink:hover {
+  background-color: rgba(182, 109, 130, 0.1);
+  transform: translateY(-2px);
+}
+
+.codeLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  margin: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  border: 1px solid #a89c9f;
+  border-radius: 0.4rem;
+  color: #a89c9f;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  height: fit-content;
+}
+
+.codeLink:hover {
+  background-color: rgba(168, 156, 159, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Animaciones */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
