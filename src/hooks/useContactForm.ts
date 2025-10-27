@@ -1,9 +1,25 @@
 import { useState } from "react";
 import { contactSchema } from "../app/validations/contactSchema";
 import { notification } from "@/utils/notifications";
+import * as yup from "yup";
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface ValidationError {
+  path?: string;
+  message: string;
+}
 
 export const useContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -11,10 +27,10 @@ export const useContactForm = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
-      setErrors(prev => {
+      setErrors((prev) => {
         const newErrors = { ...prev };
         delete newErrors[name];
         return newErrors;
@@ -24,7 +40,7 @@ export const useContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({}); //Limpia errores dde antes
+    setErrors({});
     setIsSubmitting(true);
 
     try {
@@ -42,15 +58,19 @@ export const useContactForm = () => {
         notification("Mensaje enviado con éxito", "success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setErrors({ message: "Error al enviar el mensaje. Intenta nuevamente." });
-        notification("Error al enviar el mensaje. Intenta nuevamente.", "error");
+        setErrors({
+          message: "Error al enviar el mensaje. Intenta nuevamente.",
+        });
+        notification(
+          "Error al enviar el mensaje. Intenta nuevamente.",
+          "error"
+        );
       }
-
-    } catch (err: any) {
-      if (err.inner) {
+    } catch (err: unknown) {
+      if (err instanceof yup.ValidationError && err.inner) {
         const validationErrors: Record<string, string> = {};
-        err.inner.forEach((error: any) => {
-          if (!validationErrors[error.path]) {
+        err.inner.forEach((error: ValidationError) => {
+          if (error.path && !validationErrors[error.path]) {
             validationErrors[error.path] = error.message;
           }
         });
@@ -58,7 +78,6 @@ export const useContactForm = () => {
       } else {
         setErrors({ message: "Ocurrió un error inesperado." });
       }
-
     } finally {
       setIsSubmitting(false);
     }
